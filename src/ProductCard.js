@@ -1,10 +1,10 @@
 import React from 'react';
 
-export const ProductCard = () => {
+export const ProductCard = ({ item }) => {
     return (
         <div className="product-card">
-            <div className="item-name">Football</div>
-            <div className="item-price">$49.99</div>
+            <div className="item-name">{item.name}</div>
+            <div className="item-price">{item.price}</div>
         </div>
     )
 }

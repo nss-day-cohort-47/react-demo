@@ -1,7 +1,9 @@
 import React from 'react';
 
-export const ProductHeader = () => {
+export const ProductHeader = ({ category }) => {
     return (
-        <h3 className="product-header">Sporting Goods</h3>
+        <>
+            <h3 className="product-header">{category}</h3>
+        </>
     )
 }

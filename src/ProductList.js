@@ -1,13 +1,23 @@
 import React from 'react';
-import { ProductCard } from './ProductCard';
-import { ProductHeader } from './ProductHeader';
+import { ProductCategory } from './ProductCategory';
 
-export const ProductList = () => {
+
+export const ProductList = ({ data }) => {
+
+    // create a new data set where the items are grouped by category
+    const groupByCategory = data.reduce((acc, cv) => {
+        acc[cv.category] = [...acc[cv.category] || [], cv];
+        return acc
+    }, {});
+
     return (
         <div className="product-list">
             <div className="title">Name   Price</div>
-            <ProductHeader />
-            <ProductCard />
+            {
+                Object.entries(groupByCategory).map((category, i) =>
+                    <ProductCategory key={i} category={category} />
+                )
+            }
         </div>
     )
 }
